@@ -10,4 +10,5 @@ import java.util.List;
 public interface VisitDao {
     void save(Visit visit);
     public List<VisitResponse> getAllVisits();
+    public Long getVisitCount();
 }

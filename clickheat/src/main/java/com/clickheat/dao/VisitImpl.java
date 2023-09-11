@@ -41,4 +41,12 @@ public class VisitImpl implements VisitDao{
         }
         return dateCountList;
     }
+
+    @Override
+    public Long getVisitCount() {
+        String queryString = "SELECT COUNT(*) as count " +
+                "FROM Visit v ";
+        Query q = entityManager.createQuery(queryString);
+        return (Long) q.getSingleResult();
+    }
 }

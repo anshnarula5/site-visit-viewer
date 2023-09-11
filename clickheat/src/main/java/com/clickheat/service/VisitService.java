@@ -24,4 +24,8 @@ public class VisitService {
     public List<VisitResponse> getAllVisits(){
         return visitDao.getAllVisits();
     }
+
+    public Long getVisitCount(){
+        return visitDao.getVisitCount();
+    }
 }

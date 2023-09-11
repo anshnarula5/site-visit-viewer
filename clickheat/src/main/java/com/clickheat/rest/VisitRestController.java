@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class VisitRestController {
     private VisitService visitService;
     @Autowired
@@ -22,6 +23,7 @@ public class VisitRestController {
     public String addNewVisit(@RequestBody Visit visit){
         try {
             visitService.addNewVisit(visit);
+            System.out.println(visit);
         } catch (Exception e){
             throw new RuntimeException(e);
         }
@@ -32,5 +34,11 @@ public class VisitRestController {
     public List<VisitResponse> getAllVisits(){
         List<VisitResponse> visits = visitService.getAllVisits();
         return visits;
+    }
+
+    @GetMapping("/count")
+    public Long getVisitCount(){
+        Long totalCount = visitService.getVisitCount();
+        return totalCount;
     }
 }
